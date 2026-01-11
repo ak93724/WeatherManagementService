@@ -1,0 +1,433 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.weather.system:wms >-----------------------
+[INFO] Building wms 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.2-SNAPSHOT:run (default-cli) > test-compile @ wms >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ wms ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ wms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ wms ---
+[INFO] skip non existing resourceDirectory /Users/ashishkumar/IdeaProjects/wms/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ wms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.2-SNAPSHOT:run (default-cli) < test-compile @ wms <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.2-SNAPSHOT:run (default-cli) @ wms ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::       (v4.0.2-SNAPSHOT)
+
+2025-12-27T17:15:10.068+05:30  INFO 69035 --- [wms] [           main] com.weather.system.wms.WmsApplication    : Starting WmsApplication using Java 25.0.1 with PID 69035 (/Users/ashishkumar/IdeaProjects/wms/target/classes started by ashishkumar in /Users/ashishkumar/IdeaProjects/wms)
+2025-12-27T17:15:10.069+05:30  INFO 69035 --- [wms] [           main] com.weather.system.wms.WmsApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-12-27T17:15:10.093+05:30  INFO 69035 --- [wms] [           main] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /Users/ashishkumar/IdeaProjects/wms/compose.yaml
+2025-12-27T17:15:10.664+05:30  INFO 69035 --- [wms] [           main] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2025-12-27T17:15:11.684+05:30  INFO 69035 --- [wms] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-27T17:15:11.685+05:30  INFO 69035 --- [wms] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-27T17:15:11.695+05:30  INFO 69035 --- [wms] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-12-27T17:15:11.828+05:30  INFO 69035 --- [wms] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2025-12-27T17:15:11.833+05:30  INFO 69035 --- [wms] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-27T17:15:11.833+05:30  INFO 69035 --- [wms] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2025-12-27T17:15:11.851+05:30  INFO 69035 --- [wms] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 369 ms
+2025-12-27T17:15:12.060+05:30  WARN 69035 --- [wms] [           main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2025-12-27T17:15:12.190+05:30  INFO 69035 --- [wms] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2025-12-27T17:15:12.193+05:30  INFO 69035 --- [wms] [           main] com.weather.system.wms.WmsApplication    : Started WmsApplication in 2.273 seconds (process running for 2.423)
+2025-12-27T17:15:12.194+05:30  INFO 69035 --- [wms] [           main] c.w.s.w.p.job.WeatherStreamingJob        : Starting Weather Streaming Job
+2025-12-27T17:15:12.194+05:30  INFO 69035 --- [wms] [           main] c.w.s.w.p.consumer.WeatherEventConsumer  : Creating Kafka source with bootstrap servers: localhost:9092, topic: weather-events, group: weather-processor-group
+2025-12-27T17:15:12.257+05:30  INFO 69035 --- [wms] [           main] c.w.s.w.p.job.WeatherStreamingJob        : Executing Weather → ClickHouse Job asynchronously
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.cpu.cores required for local execution is not set, setting it to the maximal possible value.
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.memory.task.heap.size required for local execution is not set, setting it to the maximal possible value.
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.memory.task.off-heap.size required for local execution is not set, setting it to the maximal possible value.
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.memory.network.min required for local execution is not set, setting it to its default value 64 mb.
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.memory.network.max required for local execution is not set, setting it to its default value 64 mb.
+2025-12-27T17:15:12.320+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskExecutorResourceUtils      : The configuration option taskmanager.memory.managed.size required for local execution is not set, setting it to its default value 128 mb.
+2025-12-27T17:15:12.321+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.minicluster.MiniCluster    : Starting Flink Mini Cluster
+2025-12-27T17:15:12.419+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.minicluster.MiniCluster    : Starting Metrics Registry
+2025-12-27T17:15:12.433+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.metrics.MetricRegistryImpl       : No metrics reporter configured, no metrics will be exposed/reported.
+2025-12-27T17:15:12.433+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.minicluster.MiniCluster    : Starting RPC Service(s)
+2025-12-27T17:15:12.437+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.rpc.pekko.PekkoRpcServiceUtils   : Trying to start local actor system
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.apache.pekko.util.Unsafe (file:/var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/flink-rpc-akka7a02907e-acb6-4cda-a9fd-7b5967aa7894.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.pekko.util.Unsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+2025-12-27T17:15:12.627+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.apache.pekko.event.slf4j.Slf4jLogger   : Slf4jLogger started
+2025-12-27T17:15:12.662+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.rpc.pekko.PekkoRpcServiceUtils   : Actor system started at pekko://flink
+2025-12-27T17:15:12.666+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.rpc.pekko.PekkoRpcServiceUtils   : Trying to start local actor system
+2025-12-27T17:15:12.670+05:30  INFO 69035 --- [wms] [flink-metrics-4] o.apache.pekko.event.slf4j.Slf4jLogger   : Slf4jLogger started
+2025-12-27T17:15:12.672+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.rpc.pekko.PekkoRpcServiceUtils   : Actor system started at pekko://flink-metrics
+2025-12-27T17:15:12.676+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.rpc.pekko.PekkoRpcService  : Starting RPC endpoint for org.apache.flink.runtime.metrics.dump.MetricQueryService at pekko://flink-metrics/user/rpc/MetricQueryService .
+2025-12-27T17:15:12.711+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Loading delegation token providers
+2025-12-27T17:15:12.712+05:30  INFO 69035 --- [wms] [           main] .r.s.t.h.HadoopFSDelegationTokenProvider : Hadoop FS is not available (not packaged with this application): NoClassDefFoundError : "org/apache/hadoop/conf/Configuration".
+2025-12-27T17:15:12.712+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Delegation token provider hadoopfs loaded and initialized
+2025-12-27T17:15:12.713+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Delegation token provider hbase loaded and initialized
+2025-12-27T17:15:12.713+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Delegation token providers loaded successfully
+2025-12-27T17:15:12.713+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Loading delegation token receivers
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receiver hadoopfs loaded and initialized
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receiver hbase loaded and initialized
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receivers loaded successfully
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Checking provider and receiver instances consistency
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Provider and receiver instances are consistent
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Obtaining delegation tokens
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : Delegation tokens obtained successfully
+2025-12-27T17:15:12.714+05:30  WARN 69035 --- [wms] [           main] .a.f.r.s.t.DefaultDelegationTokenManager : No tokens obtained so skipping notifications
+2025-12-27T17:15:12.714+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Loading delegation token receivers
+2025-12-27T17:15:12.715+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receiver hadoopfs loaded and initialized
+2025-12-27T17:15:12.715+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receiver hbase loaded and initialized
+2025-12-27T17:15:12.715+05:30  INFO 69035 --- [wms] [           main] .r.s.t.DelegationTokenReceiverRepository : Delegation token receivers loaded successfully
+2025-12-27T17:15:12.718+05:30  INFO 69035 --- [wms] [           main] o.apache.flink.runtime.blob.BlobServer   : Created BLOB server storage directory /var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/minicluster_03bb3a0d3c73c23473fbc639bcfa71ec/blobStorage
+2025-12-27T17:15:12.719+05:30  INFO 69035 --- [wms] [           main] o.apache.flink.runtime.blob.BlobServer   : Started BLOB server at 0.0.0.0:49519 - max concurrent requests: 50 - max backlog: 1000
+2025-12-27T17:15:12.724+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.blob.PermanentBlobCache    : Created BLOB cache storage directory /var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/minicluster_03bb3a0d3c73c23473fbc639bcfa71ec/blobStorage
+2025-12-27T17:15:12.725+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.blob.TransientBlobCache    : Created BLOB cache storage directory /var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/minicluster_03bb3a0d3c73c23473fbc639bcfa71ec/blobStorage
+2025-12-27T17:15:12.725+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.minicluster.MiniCluster    : Starting 1 TaskManager(s)
+2025-12-27T17:15:12.728+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.taskexecutor.TaskManagerRunner   : Starting TaskManager with ResourceID: 30add1f7-f25c-4c61-8edb-432b2491f280
+2025-12-27T17:15:12.735+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.t.TaskManagerServices            : Temporary file directory '/var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T': total 228 GB, usable 119 GB (52.19% usable)
+2025-12-27T17:15:12.736+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.io.disk.iomanager.IOManager      : Created a new FileChannelManager for spilling of task related data to disk (joins, sorting, ...). Used directories:
+	/var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/flink-io-fd8c8efa-3995-4561-817f-6cfd56a94077
+2025-12-27T17:15:12.739+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.i.n.NettyShuffleServiceFactory   : Created a new FileChannelManager for storing result partitions of BLOCKING shuffles. Used directories:
+	/var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/flink-netty-shuffle-31e403ed-a8f2-4ac8-8ac9-d09fcb7c4323
+2025-12-27T17:15:12.750+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.i.n.buffer.NetworkBufferPool     : Allocated 64 MB for network buffer pool (number of memory segments: 2048, bytes per segment: 32768).
+2025-12-27T17:15:12.757+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.i.n.NettyShuffleEnvironment      : Starting the network environment and its components.
+2025-12-27T17:15:12.758+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.taskexecutor.KvStateService      : Starting the kvState service and its components.
+2025-12-27T17:15:12.772+05:30  INFO 69035 --- [wms] [           main] o.a.flink.configuration.Configuration    : Config uses fallback configuration key 'pekko.ask.timeout' instead of key 'taskmanager.slot.timeout'
+2025-12-27T17:15:12.777+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.rpc.pekko.PekkoRpcService  : Starting RPC endpoint for org.apache.flink.runtime.taskexecutor.TaskExecutor at pekko://flink/user/rpc/taskmanager_0 .
+2025-12-27T17:15:12.782+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.t.DefaultJobLeaderService        : Start job leader service.
+2025-12-27T17:15:12.783+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.flink.runtime.filecache.FileCache    : User file cache uses directory /var/folders/_d/_bg1lyt52kq43gxf33z5rvzw0000gn/T/flink-dist-cache-0a6cc6c1-c404-485a-a6ab-4d2d689bd2ec
+2025-12-27T17:15:12.804+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.d.DispatcherRestEndpoint         : Starting rest endpoint.
+2025-12-27T17:15:12.804+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.d.DispatcherRestEndpoint         : Failed to load web based job submission extension. Probable reason: flink-runtime-web is not in the classpath.
+2025-12-27T17:15:12.885+05:30  WARN 69035 --- [wms] [           main] o.a.f.r.webmonitor.WebMonitorUtils       : Log file environment variable 'log.file' is not set.
+2025-12-27T17:15:12.885+05:30  WARN 69035 --- [wms] [           main] o.a.f.r.webmonitor.WebMonitorUtils       : JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'web.log.path'.
+2025-12-27T17:15:12.924+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.d.DispatcherRestEndpoint         : Rest endpoint listening at localhost:49520
+2025-12-27T17:15:12.925+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.h.n.e.EmbeddedLeaderService      : Proposing leadership to the contender that is registered under component ID 'rest_server'.
+2025-12-27T17:15:12.925+05:30  INFO 69035 --- [wms] [ter-io-thread-1] o.a.f.r.d.DispatcherRestEndpoint         : http://localhost:49520 was granted leadership with leaderSessionID=a43c0535-d691-4633-840f-88280c93b056
+2025-12-27T17:15:12.926+05:30  INFO 69035 --- [wms] [ter-io-thread-1] o.a.f.r.h.n.e.EmbeddedLeaderService      : Received confirmation of leadership for leader http://localhost:49520 , session=a43c0535-d691-4633-840f-88280c93b056
+2025-12-27T17:15:12.929+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.h.n.e.EmbeddedLeaderService      : Proposing leadership to the contender that is registered under component ID 'dispatcher'.
+2025-12-27T17:15:12.929+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.r.ResourceManagerServiceImpl     : Starting resource manager service.
+2025-12-27T17:15:12.929+05:30  INFO 69035 --- [wms] [           main] o.a.f.r.h.n.e.EmbeddedLeaderService      : Proposing leadership to the contender that is registered under component ID 'resource_manager'.
+2025-12-27T17:15:12.929+05:30  INFO 69035 --- [wms] [ter-io-thread-2] o.a.f.r.d.r.DefaultDispatcherRunner      : DefaultDispatcherRunner was granted leadership with leader id a9805112-1193-4a13-85c0-11032a5c88a4. Creating new DispatcherLeaderProcess.
+2025-12-27T17:15:12.929+05:30  INFO 69035 --- [wms] [pool-4-thread-1] o.a.f.r.r.ResourceManagerServiceImpl     : Resource manager service is granted leadership with session id 521ab8d7-9f84-4033-a746-7df5d0b9b414.
+2025-12-27T17:15:12.930+05:30  INFO 69035 --- [wms] [           main] o.a.f.runtime.minicluster.MiniCluster    : Flink Mini Cluster started successfully
+2025-12-27T17:15:12.930+05:30  INFO 69035 --- [wms] [ter-io-thread-2] a.f.r.d.r.SessionDispatcherLeaderProcess : Start SessionDispatcherLeaderProcess.
+2025-12-27T17:15:12.931+05:30  INFO 69035 --- [wms] [ter-io-thread-1] a.f.r.d.r.SessionDispatcherLeaderProcess : Recover all persisted job graphs that are not finished, yet.
+2025-12-27T17:15:12.931+05:30  INFO 69035 --- [wms] [ter-io-thread-1] a.f.r.d.r.SessionDispatcherLeaderProcess : Successfully recovered 0 persisted job graphs.
+2025-12-27T17:15:12.935+05:30  INFO 69035 --- [wms] [pool-4-thread-1] o.a.f.runtime.rpc.pekko.PekkoRpcService  : Starting RPC endpoint for org.apache.flink.runtime.resourcemanager.StandaloneResourceManager at pekko://flink/user/rpc/resourcemanager_1 .
+2025-12-27T17:15:12.936+05:30  INFO 69035 --- [wms] [ter-io-thread-1] o.a.f.runtime.rpc.pekko.PekkoRpcService  : Starting RPC endpoint for org.apache.flink.runtime.dispatcher.StandaloneDispatcher at pekko://flink/user/rpc/dispatcher_2 .
+2025-12-27T17:15:12.937+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.StandaloneResourceManager      : Starting the resource manager.
+2025-12-27T17:15:12.938+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.s.FineGrainedSlotManager       : Starting the slot manager.
+2025-12-27T17:15:12.938+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] .a.f.r.s.t.DefaultDelegationTokenManager : Starting tokens update task
+2025-12-27T17:15:12.938+05:30  WARN 69035 --- [wms] [lt-dispatcher-5] .a.f.r.s.t.DefaultDelegationTokenManager : No tokens obtained so skipping notifications
+2025-12-27T17:15:12.938+05:30  WARN 69035 --- [wms] [lt-dispatcher-5] .a.f.r.s.t.DefaultDelegationTokenManager : Tokens update task not started because either no tokens obtained or none of the tokens specified its renewal date
+2025-12-27T17:15:12.938+05:30  INFO 69035 --- [wms] [ter-io-thread-4] o.a.f.r.h.n.e.EmbeddedLeaderService      : Received confirmation of leadership for leader pekko://flink/user/rpc/resourcemanager_1 , session=521ab8d7-9f84-4033-a746-7df5d0b9b414
+2025-12-27T17:15:12.939+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.runtime.taskexecutor.TaskExecutor  : Connecting to ResourceManager pekko://flink/user/rpc/resourcemanager_1(a7467df5d0b9b414521ab8d79f844033).
+2025-12-27T17:15:12.940+05:30  INFO 69035 --- [wms] [ter-io-thread-1] o.a.f.r.h.n.e.EmbeddedLeaderService      : Received confirmation of leadership for leader pekko://flink/user/rpc/dispatcher_2 , session=a9805112-1193-4a13-85c0-11032a5c88a4
+2025-12-27T17:15:12.947+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.runtime.taskexecutor.TaskExecutor  : Resolved ResourceManager address, beginning registration
+2025-12-27T17:15:12.949+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.r.StandaloneResourceManager      : Registering TaskManager with ResourceID 30add1f7-f25c-4c61-8edb-432b2491f280 (pekko://flink/user/rpc/taskmanager_0) at ResourceManager
+2025-12-27T17:15:12.949+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.runtime.taskexecutor.TaskExecutor  : Successful registration at resource manager pekko://flink/user/rpc/resourcemanager_1 under registration id 9257ebfebaba6355937e345206731ac6.
+2025-12-27T17:15:12.949+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.dispatcher.StandaloneDispatcher  : Received JobGraph submission 'Weather → ClickHouse Job' (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:12.950+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.dispatcher.StandaloneDispatcher  : Submitting job 'Weather → ClickHouse Job' (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:12.950+05:30  INFO 69035 --- [wms] [lt-dispatcher-9] o.a.f.r.r.s.FineGrainedSlotManager       : Registering task executor 30add1f7-f25c-4c61-8edb-432b2491f280 under 9257ebfebaba6355937e345206731ac6 at the slot manager.
+2025-12-27T17:15:12.953+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.h.n.e.EmbeddedLeaderService      : Proposing leadership to the contender that is registered under component ID 'job-b2cafe31b9e2b223382402dec68ad33f'.
+2025-12-27T17:15:12.953+05:30  INFO 69035 --- [wms] [ter-io-thread-4] a.f.r.j.JobMasterServiceLeadershipRunner : JobMasterServiceLeadershipRunner for job b2cafe31b9e2b223382402dec68ad33f was granted leadership with leader id 1fe233d4-fc34-411e-ac9e-0efc7cabc0e6. Creating new JobMasterServiceProcess.
+2025-12-27T17:15:12.959+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.runtime.rpc.pekko.PekkoRpcService  : Starting RPC endpoint for org.apache.flink.runtime.jobmaster.JobMaster at pekko://flink/user/rpc/jobmanager_3 .
+2025-12-27T17:15:12.962+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Initializing job 'Weather → ClickHouse Job' (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:12.968+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Using restart back off time strategy NoRestartBackoffTimeStrategy for Weather → ClickHouse Job (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:12.979+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.r.executiongraph.ExecutionGraph    : Created execution graph f05b796c621302c278e0e14abcfdef82 for job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:12.987+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Running initialization on master for job Weather → ClickHouse Job (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:12.987+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Successfully ran initialization on master in 0 ms.
+2025-12-27T17:15:12.999+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.r.s.a.DefaultExecutionTopology     : Built 1 new pipelined regions in 0 ms, total 1 pipelined regions currently.
+2025-12-27T17:15:13.000+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : No state backend has been configured, using default (HashMap) org.apache.flink.runtime.state.hashmap.HashMapStateBackend@1738442c
+2025-12-27T17:15:13.000+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.runtime.state.StateBackendLoader   : State backend loader loads the state backend as HashMapStateBackend
+2025-12-27T17:15:13.001+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Checkpoint storage is set to 'jobmanager'
+2025-12-27T17:15:13.013+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.r.c.CheckpointCoordinator          : No checkpoint found during restore.
+2025-12-27T17:15:13.015+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.flink.runtime.jobmaster.JobMaster    : Using failover strategy org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy@4e2b3fa4 for Weather → ClickHouse Job (b2cafe31b9e2b223382402dec68ad33f).
+2025-12-27T17:15:13.017+05:30  INFO 69035 --- [wms] [ger-io-thread-1] o.a.f.r.h.n.e.EmbeddedLeaderService      : Received confirmation of leadership for leader pekko://flink/user/rpc/jobmanager_3 , session=1fe233d4-fc34-411e-ac9e-0efc7cabc0e6
+2025-12-27T17:15:13.018+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.flink.runtime.jobmaster.JobMaster    : Starting execution of job 'Weather → ClickHouse Job' (b2cafe31b9e2b223382402dec68ad33f) under job master id ac9e0efc7cabc0e61fe233d4fc34411e.
+2025-12-27T17:15:13.019+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.s.coordinator.SourceCoordinator  : Starting split enumerator for source Source: Weather Events Source.
+2025-12-27T17:15:13.020+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.flink.runtime.jobmaster.JobMaster    : Starting scheduling with scheduling strategy [org.apache.flink.runtime.scheduler.strategy.PipelinedRegionSchedulingStrategy]
+2025-12-27T17:15:13.020+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.executiongraph.ExecutionGraph    : Job Weather → ClickHouse Job (b2cafe31b9e2b223382402dec68ad33f) switched from state CREATED to RUNNING.
+2025-12-27T17:15:13.021+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.executiongraph.ExecutionGraph    : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1) (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from CREATED to SCHEDULED.
+2025-12-27T17:15:13.026+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.flink.runtime.jobmaster.JobMaster    : Connecting to ResourceManager pekko://flink/user/rpc/resourcemanager_1(a7467df5d0b9b414521ab8d79f844033)
+2025-12-27T17:15:13.026+05:30  INFO 69035 --- [wms] [lt-dispatcher-9] o.a.flink.runtime.jobmaster.JobMaster    : Resolved ResourceManager address, beginning registration
+2025-12-27T17:15:13.027+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.StandaloneResourceManager      : Registering job manager ac9e0efc7cabc0e61fe233d4fc34411e@pekko://flink/user/rpc/jobmanager_3 for job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:13.028+05:30  INFO 69035 --- [wms] [r Events Source] o.a.kafka.common.config.AbstractConfig   : AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = weather-processor-group-enumerator-admin-client
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-12-27T17:15:13.029+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.StandaloneResourceManager      : Registered job manager ac9e0efc7cabc0e61fe233d4fc34411e@pekko://flink/user/rpc/jobmanager_3 for job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:13.029+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.flink.runtime.jobmaster.JobMaster    : JobManager successfully registered at ResourceManager, leader id: a7467df5d0b9b414521ab8d79f844033.
+2025-12-27T17:15:13.030+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.r.s.FineGrainedSlotManager       : Received resource requirements from job b2cafe31b9e2b223382402dec68ad33f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2025-12-27T17:15:13.048+05:30  INFO 69035 --- [wms] [r Events Source] o.a.kafka.common.config.AbstractConfig   : These configurations '[key.deserializer, value.deserializer, enable.auto.commit, client.id.prefix, group.id, partition.discovery.interval.ms, auto.offset.reset]' were supplied but are not used yet.
+2025-12-27T17:15:13.049+05:30  INFO 69035 --- [wms] [r Events Source] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2025-12-27T17:15:13.049+05:30  INFO 69035 --- [wms] [r Events Source] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2025-12-27T17:15:13.049+05:30  INFO 69035 --- [wms] [r Events Source] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1766835913049
+2025-12-27T17:15:13.050+05:30  INFO 69035 --- [wms] [r Events Source] o.a.f.c.k.s.e.KafkaSourceEnumerator      : Starting the KafkaSourceEnumerator for consumer group weather-processor-group without periodic partition discovery.
+2025-12-27T17:15:13.096+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.s.FineGrainedSlotManager       : Matching resource requirements against available resources.
+Missing resources:
+	 Job b2cafe31b9e2b223382402dec68ad33f
+		ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}
+Current resources:
+	TaskManager 30add1f7-f25c-4c61-8edb-432b2491f280
+		Available: ResourceProfile{taskHeapMemory=1024.000gb (1099511627776 bytes), taskOffHeapMemory=1024.000gb (1099511627776 bytes), managedMemory=128.000mb (134217728 bytes), networkMemory=64.000mb (67108864 bytes)}
+		Total:     ResourceProfile{taskHeapMemory=1024.000gb (1099511627776 bytes), taskOffHeapMemory=1024.000gb (1099511627776 bytes), managedMemory=128.000mb (134217728 bytes), networkMemory=64.000mb (67108864 bytes)}
+2025-12-27T17:15:13.097+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.r.s.DefaultSlotStatusSyncer      : Starting allocation of slot 0cdfa3b4343457b365166cecd9efa497 from 30add1f7-f25c-4c61-8edb-432b2491f280 for job b2cafe31b9e2b223382402dec68ad33f with resource profile ResourceProfile{taskHeapMemory=1024.000gb (1099511627776 bytes), taskOffHeapMemory=1024.000gb (1099511627776 bytes), managedMemory=128.000mb (134217728 bytes), networkMemory=64.000mb (67108864 bytes)}.
+2025-12-27T17:15:13.099+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.runtime.taskexecutor.TaskExecutor  : Receive slot request 0cdfa3b4343457b365166cecd9efa497 for job b2cafe31b9e2b223382402dec68ad33f from resource manager with leader id a7467df5d0b9b414521ab8d79f844033.
+2025-12-27T17:15:13.099+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.t.slot.TaskSlotTableImpl         : Allocated slot for 0cdfa3b4343457b365166cecd9efa497 with resources ResourceProfile{taskHeapMemory=1024.000gb (1099511627776 bytes), taskOffHeapMemory=1024.000gb (1099511627776 bytes), managedMemory=128.000mb (134217728 bytes), networkMemory=64.000mb (67108864 bytes)}.
+2025-12-27T17:15:13.101+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.t.DefaultJobLeaderService        : Add job b2cafe31b9e2b223382402dec68ad33f for job leader monitoring.
+2025-12-27T17:15:13.101+05:30  INFO 69035 --- [wms] [ter-io-thread-4] o.a.f.r.t.DefaultJobLeaderService        : Try to register at job manager pekko://flink/user/rpc/jobmanager_3 with leader id 1fe233d4-fc34-411e-ac9e-0efc7cabc0e6.
+2025-12-27T17:15:13.101+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.t.DefaultJobLeaderService        : Resolved JobManager address, beginning registration
+2025-12-27T17:15:13.103+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.t.DefaultJobLeaderService        : Successful registration at job manager pekko://flink/user/rpc/jobmanager_3 for job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:13.103+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.runtime.taskexecutor.TaskExecutor  : Establish JobManager connection for job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:13.104+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.runtime.taskexecutor.TaskExecutor  : Offer reserved slots to the leader of job b2cafe31b9e2b223382402dec68ad33f.
+2025-12-27T17:15:13.106+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.executiongraph.ExecutionGraph    : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1) (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from SCHEDULED to DEPLOYING.
+2025-12-27T17:15:13.106+05:30  INFO 69035 --- [wms] [lt-dispatcher-5] o.a.f.r.executiongraph.ExecutionGraph    : Deploying Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1) (attempt #0) with attempt id f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0 and vertex id cbc357ccb763df2852fee8c4fc7d55f2_0 to 30add1f7-f25c-4c61-8edb-432b2491f280 @ localhost (dataPort=-1) with allocation id 0cdfa3b4343457b365166cecd9efa497
+2025-12-27T17:15:13.108+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.r.t.slot.TaskSlotTableImpl         : Activate slot 0cdfa3b4343457b365166cecd9efa497.
+2025-12-27T17:15:13.112+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.r.s.c.StateChangelogStorageLoader  : StateChangelogStorageLoader initialized with shortcut names {memory}.
+2025-12-27T17:15:13.112+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.r.s.c.StateChangelogStorageLoader  : Creating a changelog storage with name 'memory'.
+2025-12-27T17:15:13.115+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] ecutorChannelStateExecutorFactoryManager : Creating the channel state executor factory for job id b2cafe31b9e2b223382402dec68ad33f
+2025-12-27T17:15:13.117+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.runtime.taskexecutor.TaskExecutor  : Received task Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1)#0 (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0), deploy into slot with allocation id 0cdfa3b4343457b365166cecd9efa497.
+2025-12-27T17:15:13.117+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.apache.flink.runtime.taskmanager.Task  : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1)#0 (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from CREATED to DEPLOYING.
+2025-12-27T17:15:13.118+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.r.t.slot.TaskSlotTableImpl         : Activate slot 0cdfa3b4343457b365166cecd9efa497.
+2025-12-27T17:15:13.119+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.apache.flink.runtime.taskmanager.Task  : Loading JAR files for task Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1)#0 (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) [DEPLOYING].
+2025-12-27T17:15:13.125+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.f.s.runtime.tasks.StreamTask         : No state backend has been configured, using default (HashMap) org.apache.flink.runtime.state.hashmap.HashMapStateBackend@36acad26
+2025-12-27T17:15:13.125+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.f.runtime.state.StateBackendLoader   : State backend loader loads the state backend as HashMapStateBackend
+2025-12-27T17:15:13.125+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.f.s.runtime.tasks.StreamTask         : Checkpoint storage is set to 'jobmanager'
+2025-12-27T17:15:13.129+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.apache.flink.runtime.taskmanager.Task  : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1)#0 (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from DEPLOYING to INITIALIZING.
+2025-12-27T17:15:13.129+05:30  INFO 69035 --- [wms] [lt-dispatcher-7] o.a.f.r.executiongraph.ExecutionGraph    : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1) (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from DEPLOYING to INITIALIZING.
+2025-12-27T17:15:13.200+05:30  INFO 69035 --- [wms] [r Events Source] o.a.f.c.k.s.e.KafkaSourceEnumerator      : Discovered new partitions: [weather-events-0]
+2025-12-27T17:15:13.294+05:30  INFO 69035 --- [wms] [r Events Source] o.a.f.r.s.coordinator.SourceCoordinator  : Source Source: Weather Events Source registering reader for parallel task 0 (#0) @ 
+2025-12-27T17:15:13.294+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.apache.flink.runtime.taskmanager.Task  : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1)#0 (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from INITIALIZING to RUNNING.
+2025-12-27T17:15:13.295+05:30  INFO 69035 --- [wms] [lt-dispatcher-8] o.a.f.r.executiongraph.ExecutionGraph    : Source: Weather Events Source -> Map -> (Sink: Print to Std. Out, Sink: Unnamed) (1/1) (f05b796c621302c278e0e14abcfdef82_cbc357ccb763df2852fee8c4fc7d55f2_0_0) switched from INITIALIZING to RUNNING.
+2025-12-27T17:15:13.295+05:30  INFO 69035 --- [wms] [r Events Source] o.a.f.c.k.s.e.KafkaSourceEnumerator      : Assigning splits to readers {0=[[Partition: weather-events-0, StartingOffset: 3, StoppingOffset: -9223372036854775808]]}
+2025-12-27T17:15:13.297+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.f.c.b.s.reader.SourceReaderBase      : Adding split(s) to reader: [[Partition: weather-events-0, StartingOffset: 3, StoppingOffset: -9223372036854775808]]
+2025-12-27T17:15:13.301+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = weather-processor-group-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = weather-processor-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+2025-12-27T17:15:13.316+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-12-27T17:15:13.334+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.kafka.common.config.AbstractConfig   : These configurations '[client.id.prefix, partition.discovery.interval.ms]' were supplied but are not used yet.
+2025-12-27T17:15:13.334+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2025-12-27T17:15:13.334+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2025-12-27T17:15:13.334+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1766835913334
+2025-12-27T17:15:13.336+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.f.c.b.s.reader.fetcher.SplitFetcher  : Starting split fetcher 0
+2025-12-27T17:15:13.337+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=weather-processor-group-0, groupId=weather-processor-group] Assigned to partition(s): weather-events-0
+2025-12-27T17:15:13.338+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=weather-processor-group-0, groupId=weather-processor-group] Seeking to offset 3 for partition weather-events-0
+2025-12-27T17:15:13.341+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] org.apache.kafka.clients.Metadata        : [Consumer clientId=weather-processor-group-0, groupId=weather-processor-group] Cluster ID: redpanda.e5d78beb-73d8-4f2e-87c5-219b3d1e9bc0
+2025-12-27T17:15:28.758+05:30  INFO 69035 --- [wms] [nnamed) (1/1)#0] c.w.s.w.p.parser.WeatherEventParser      : Message from Redpanda value is :{"deviceId":"sensor-new","region":"Pune","temperature":29.8,"humidity":75.2,"eventTime":1735300600000}
+WeatherEvent(deviceId=sensor-new, region=Pune, temperature=29.8, humidity=75.2, eventTime=1735300600000)

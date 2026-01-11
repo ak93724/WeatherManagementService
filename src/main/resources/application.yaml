@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: wms
+redpanda:
+  bootstrap-servers: localhost:9092
+  topic:
+    weather-events: weather-events
+  consumer-group: weather-processor-group
+clickhouse:
+  url: jdbc:clickhouse://localhost:8123/weather?compress=0
+  user: bob
+  password: secret123
