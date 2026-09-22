@@ -30,7 +30,7 @@ public class WeatherAnalyticsService {
                            min(event_time), max(event_time)
                     FROM weather.weather_events"""));
             result.put("latest", rows(connection, """
-                    SELECT region, device_id, event_time, temperature, humidity
+                    SELECT region, device_id, latest_event_time, temperature, humidity
                     FROM weather.latest_weather_by_region ORDER BY region"""));
             result.put("hourly", rows(connection, """
                     SELECT region, hour, event_count, round(avg_temperature, 2) AS avg_temperature,
