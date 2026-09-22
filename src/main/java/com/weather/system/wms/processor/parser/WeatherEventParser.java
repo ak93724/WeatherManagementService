@@ -12,13 +12,13 @@ public class WeatherEventParser implements MapFunction<String, WeatherEvent> {
 
     @Override
     public WeatherEvent map(String value) throws Exception {
-        log.info("Message from Redpanda value is :{}", value);
-        WeatherEvent weatherEvent = null;
         try {
-            weatherEvent = mapper.readValue(value, WeatherEvent.class);
+            WeatherEvent weatherEvent = mapper.readValue(value, WeatherEvent.class);
+            weatherEvent.validate();
+            return weatherEvent;
         } catch (Exception ex) {
-            log.error("failed to parse message : {}", value);
+            log.error("Failed to parse or validate weather event: {}", value, ex);
+            throw ex;
         }
-        return weatherEvent;
     }
 }

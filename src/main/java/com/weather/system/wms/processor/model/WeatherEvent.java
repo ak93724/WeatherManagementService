@@ -19,4 +19,13 @@ public class WeatherEvent {
     private double humidity;
 
     private long eventTime;
+
+    public void validate() {
+        if (deviceId == null || deviceId.isBlank()) throw new IllegalArgumentException("deviceId is required");
+        if (region == null || region.isBlank()) throw new IllegalArgumentException("region is required");
+        if (!Double.isFinite(temperature) || !Double.isFinite(humidity)) {
+            throw new IllegalArgumentException("temperature and humidity must be finite");
+        }
+        if (eventTime <= 0) throw new IllegalArgumentException("eventTime must be positive");
+    }
 }
