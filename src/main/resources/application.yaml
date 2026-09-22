@@ -1,12 +1,40 @@
 spring:
   application:
     name: wms
-redpanda:
-  bootstrap-servers: localhost:9092
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      acks: all
+      enable-idempotence: true
+      compression-type: lz4
+      properties:
+        linger.ms: 5
+        batch.size: 32768
+kafka:
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
   topic:
     weather-events: weather-events
   consumer-group: weather-processor-group
 clickhouse:
-  url: jdbc:clickhouse://localhost:8123/weather?compress=0
-  user: bob
-  password: secret123
+  host: ${CLICKHOUSE_HOST:localhost}
+  port: ${CLICKHOUSE_PORT:8123}
+  database: ${CLICKHOUSE_DATABASE:weather}
+  user: ${CLICKHOUSE_USER:wms}
+  password: ${CLICKHOUSE_PASSWORD:weather}
+  batch-size: ${CLICKHOUSE_BATCH_SIZE:500}
+  flush-interval-ms: ${CLICKHOUSE_BATCH_FLUSH_INTERVAL_MS:5000}
+weather:
+  streaming:
+    enabled: ${WEATHER_STREAMING_ENABLED:true}
+  ingestion:
+    enabled: ${WEATHER_INGESTION_ENABLED:false}
+    endpoint: ${OPEN_METEO_ENDPOINT:https://api.open-meteo.com/v1/forecast}
+    interval-ms: ${WEATHER_INGESTION_INTERVAL_MS:60000}
+    initial-delay-ms: ${WEATHER_INGESTION_INITIAL_DELAY_MS:5000}
+    max-retries: ${OPEN_METEO_MAX_RETRIES:2}
+    retry-delay-ms: ${OPEN_METEO_RETRY_DELAY_MS:1000}
+    locations:
+      - id: bangalore
+        region: Bangalore
+        latitude: 12.9716
+        longitude: 77.5946

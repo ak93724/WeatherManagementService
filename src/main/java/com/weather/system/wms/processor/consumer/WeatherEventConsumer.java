@@ -13,13 +13,13 @@ public class WeatherEventConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(WeatherEventConsumer.class);
 
-    @Value("${redpanda.bootstrap-servers}")
+    @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 
-    @Value("${redpanda.topic.weather-events}")
+    @Value("${kafka.topic.weather-events}")
     private String topic;
 
-    @Value("${redpanda.consumer-group}")
+    @Value("${kafka.consumer-group}")
     private String consumerGroup;
 
     public KafkaSource<String> source() {
