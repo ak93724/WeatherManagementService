@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Stream Analytics</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0d1424; --panel:#151f33; --muted:#91a0b8; --blue:#5aa9ff; --green:#55d6a2; }
+    * { box-sizing:border-box } body { margin:0; font:14px system-ui,sans-serif; background:var(--bg); color:#eef4ff }
+    main { max-width:1240px; margin:auto; padding:32px 22px } header { display:flex; justify-content:space-between; align-items:center; margin-bottom:26px }
+    h1 { margin:0; font-size:28px } h2 { font-size:16px; margin:0 0 16px } .sub { color:var(--muted); margin-top:6px }
+    button { background:var(--blue); border:0; border-radius:7px; color:#07111f; padding:10px 16px; font-weight:700; cursor:pointer }
+    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:18px } .card,.panel { background:var(--panel); border:1px solid #263652; border-radius:12px; padding:18px }
+    .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em } .value { font-size:27px; font-weight:700; margin-top:8px }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px } .wide { grid-column:1/-1 } table { width:100%; border-collapse:collapse } th,td { text-align:left; padding:10px 8px; border-bottom:1px solid #263652; white-space:nowrap } th { color:var(--muted); font-size:12px }
+    .bars { display:flex; gap:8px; align-items:end; height:170px; overflow-x:auto; padding-top:12px } .bar { min-width:34px; background:linear-gradient(var(--blue),#2766aa); border-radius:5px 5px 0 0; position:relative } .bar span { position:absolute; top:-20px; font-size:10px } .axis { color:var(--muted); font-size:11px; margin-top:8px }
+    .status { color:var(--green); font-size:12px } @media(max-width:800px){.cards,.grid{grid-template-columns:1fr 1fr}.wide{grid-column:auto}} @media(max-width:520px){.cards,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><main>
+  <header><div><h1>Weather Stream Analytics</h1><div class="sub">Kafka → Flink → ClickHouse · live dashboard</div></div><div><span id="status" class="status">Loading…</span> <button onclick="load()">Refresh</button></div></header>
+  <section class="cards" id="cards"></section>
+  <section class="grid">
+    <div class="panel wide"><h2>Hourly average temperature · last 24 hours</h2><div id="chart" class="bars"></div><div id="axis" class="axis"></div></div>
+    <div class="panel"><h2>Latest by region</h2><div id="latest"></div></div>
+    <div class="panel"><h2>Recent events</h2><div id="recent"></div></div>
+  </section>
+</main>
+<script>
+const esc=v=>String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const table=(rows,cols)=>'<table><thead><tr>'+cols.map(c=>`<th>${c[1]}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+cols.map(c=>`<td>${esc(r[c[0]])}</td>`).join('')+'</tr>').join('')+'</tbody></table>';
+async function load(){try{const d=await fetch('/api/analytics/dashboard').then(r=>r.json()),s=d.summary;document.getElementById('status').textContent='Updated '+new Date().toLocaleTimeString();
+document.getElementById('cards').innerHTML=[['count()','Events',s['count()']],['uniqExact(region)','Regions',s['uniqExact(region)']],['avg(temperature)','Avg temperature',Number(s['avg(temperature)']??0).toFixed(1)+' °C'],['avg(humidity)','Avg humidity',Number(s['avg(humidity)']??0).toFixed(1)+' %']].map(x=>`<div class="card"><div class="label">${x[1]}</div><div class="value">${esc(x[2])}</div></div>`).join('');
+document.getElementById('latest').innerHTML=table(d.latest,[['region','Region'],['temperature','Temp °C'],['humidity','Humidity %'],['event_time','Observed']]);
+document.getElementById('recent').innerHTML=table(d.recent.slice(0,8),[['region','Region'],['temperature','Temp °C'],['humidity','Humidity %'],['event_time','Time']]);
+const points=d.hourly.slice().reverse(); const max=Math.max(...points.map(x=>Number(x.avg_temperature)||0),1);document.getElementById('chart').innerHTML=points.map(x=>`<div class="bar" style="height:${Math.max(8,(x.avg_temperature/max)*145)}px" title="${esc(x.region)} · ${esc(x.avg_temperature)}°C"><span>${esc(x.avg_temperature)}</span></div>`).join('');document.getElementById('axis').textContent=points.length?`${points.length} hourly observations across ${[...new Set(points.map(x=>x.region))].join(', ')}`:'No hourly data yet';
+}catch(e){document.getElementById('status').textContent='Dashboard unavailable';console.error(e)}}load();setInterval(load,30000);
+</script></body></html>
